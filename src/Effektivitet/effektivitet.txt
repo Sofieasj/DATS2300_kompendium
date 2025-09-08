@@ -1,0 +1,17 @@
+if - else if - else
+    Dersom det er større sannsynlighet for at ett av kriteriene er sanne,
+    bør dette tilfellet (if()) sjekkes først. Hvis første kriterie er sant vil ikke de neste sjekkes,
+    noe som reduserer antall operasjoner og effektiviserer programmet.
+    ? Antar at det dersom det er realtivt lik sannsynlighet for de ulike utfallene
+    er mer effektivt å starte med den testen (if()) som bruker færrest/enklest operasjoner i betingelsen
+
+løkker
+    ? Dersom du skal iterere gjennom et array så lenge en betingelse er sann - fx at en verdi er mindre enn en annen
+    kan det være mer effektivt å bruke while() istedenfor for(), ettersom while kun tar en true/false sjekk,
+    mens en for-løkke alltid har 3 operasjoner
+
+hjelpevariabel
+    ? For å unngå hyppig indeksering (aksessering av array), en mer tidkrevende operasjon, kan du lage
+    en hjelpevariabel som holder indeksen/verdien, og slike redusere antall aksesseringer
+
+hei
