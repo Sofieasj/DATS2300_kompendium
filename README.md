@@ -20,14 +20,14 @@ OsloMet, høst 2025
   * LinkedList - doubly
   * LinkedList - circular
 * Sorteringsalgoritmer
-*   Notater
-*   Selection sort
-*   Bubble sort
-*   Quick sort - Hoare-partisjonering
-*   Quick sort - Lomuto-partisjonering
-*   Quick sort - segreger partall/oddetall
-*   Merge sort
+ * Notater
+ * Selection sort
+ * Bubble sort
+ * Quick sort - Hoare-partisjonering
+ * Quick sort - Lomuto-partisjonering
+ * Quick sort - segreger partall/oddetall
+ *   Merge sort
 * Søkealgoritmer
-*   Lineærsøk
-*   Binærsøk
+ * Lineærsøk
+ * Binærsøk
 
