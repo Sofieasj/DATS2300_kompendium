@@ -107,12 +107,22 @@ class TabellListe<T> implements Liste<T> {
     // gjør selv
     @Override
     public boolean fjern(int indeks) {
+        // sjekk at det er lovlig indeks
+        sjekkIndeks(indeks, false); // skal ikke legge inn = false
+        // hvis den da returnerer true og ikke exception:
+        if (true) {
+            // slett verdien a[i] - som i oppdater? tmp
+            // skal alle senere verdier rykkes til venstre?
+        }
         return false;
     }
 
     // gjør selv
     @Override
     public int indeksTil(T t) {
+        // sjekk om elementet finnes - inneholder()
+        // inneholder(T t); // iterer gjennom - false dersom den ikke finnes
+        // returner indeksen til der det evt finnes - how?
         return 0;
     }
 
