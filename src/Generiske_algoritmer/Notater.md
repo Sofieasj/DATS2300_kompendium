@@ -1,5 +1,4 @@
-* implements vs extends
-* interface
+
 * super og sub classes
 
 # Generiske typer
@@ -22,7 +21,7 @@ https://www.geeksforgeeks.org/java/interfaces-in-java/
 * static methods er også kun tilgjengelige via interfacet, og ikke via objekter (instantiering)
 
 ### Implements vs extends
-* en class extends class - utvider
+* en class extends class - utvider (super og subklasse - se under)
 * en interface extends interface - utvider
 * en class implements interface - kun klasse kan implementere interfaces! ikke motsatt
 
@@ -32,6 +31,12 @@ https://www.geeksforgeeks.org/java/interfaces-in-java/
 * interface - når du definerer en "kontrakt" for oppførsel som *flere* klasser kan implementere
     * ideelt for abstraksjon og multiple inheritance
 
+## Java arv - super- og sub-klasser
+* lignende som interface, men class (child/sub) arver fra class (parent/super), og ikke fra interface
+* *extends*-nøkkelordet indikerer arv fra en klasse
+* for å unngå at andre kan arve fra en spesifikk klasse - bruk final-nøkkelordet "final class Vehicle {}" - klassen kan da *ikke* extendes
+* veldig nyttig for gjenbruk av attributter og metoder, men! det kan også overforbrukes
+* se også: Polymorphism - når mange klasser "er i slekt" via arv fra felles "forelder"
 
 # Notater fra læreboka
 ## 1.4.2
