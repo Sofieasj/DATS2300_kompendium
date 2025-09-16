@@ -1,0 +1,32 @@
+* implements vs extends
+* interface
+* super og sub classes
+
+# Generiske typer
+
+## Interface
+* en abstrakt type som definerer en klasses *oppførsel* - "blueprint"
+* inneholder static constants og abstrakte (tomme) metoder
+
+* default: variabler er public, static og final
+* bruker for abstraksjon og "multiple inheritance"
+    * multiple inheritance - en klasse kan arve egenskaper fra flere "parent classes"
+    * nb - problemer dersom super og sub klasser har samme signatur (parametre) - compileren vet ikke hvem du kaller
+    * nb - java tillater ikke multiple inheritance av klasser, kun interfacer!
+* definerer metoder som arvtakerne *må* implementere
+* nb - abstract nøkkelordet brukes kun på klasser og metoder som *ikke kan instantieres direkte, men må implementeres*
+
+* private metoder kan kun kalles i default/static metoder i interfacet, ikke i klasser som implementerer den!
+* static methods er også kun tilgjengelige via interfacet, og ikke via objekter (instantiering)
+
+### Implements vs extends
+* en class extends class - utvider
+* en interface extends interface - utvider
+* en class implements interface - kun klasse kan implementere interfaces! ikke motsatt
+
+### Bruk av class vs interface
+* class - representerer en ekte entity med attributter (variabler) og oppførsel (metoder)
+    * når du skal opprette et objekt som kan holde "state" og utføre handlinger
+* interface - når du definerer en "kontrakt" for oppførsel som *flere* klasser kan implementere
+    * ideelt for abstraksjon og multiple inheritance
+
