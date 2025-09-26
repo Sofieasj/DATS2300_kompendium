@@ -1,28 +1,8 @@
 package Lister;
 
-public class ArrayList {}
+// implementerer Liste, som extender Beholder - må implementere alle metodene i begge interfaces
+public class ArrayList<T> implements Liste<T> { // samme som tabellListe
 
-// interface - klasser som implementerer må ha metodene herfra
-interface Beholder<T> {
-    boolean leggInn(T t);
-    boolean fjern(T t);
-    int antall();
-    boolean tom();
-    boolean inneholder(T t);
-    void nullstill();
-}
-
-// extender Beholder - dvs klasser som implementerer må ha metodene herfra OG fra beholder ettersom den blir extended
-interface Liste<T> extends Beholder<T> {
-    boolean leggInn(int indeks, T t);
-    T hent(int indeks);  // returnerer et element av typen T
-    T oppdater(int indeks, T t);  // returnerer et element av typen T
-    boolean fjern(int indeks);
-    int indeksTil(T t);
-}
-
-// implementerer Liste, som extender Beholder - må implementere alle metodene
-class TabellListe<T> implements Liste<T> {
     // definer variabler for klassen
     private T[] tabell; // nytt array, holder typen T
     private int antall; // antall elementer i []
@@ -30,12 +10,12 @@ class TabellListe<T> implements Liste<T> {
 
     // konstruktør som kaller *den andre konstruktøren* med (10) som argument
     // dvs - hvis du oppretter uten å spesifisere kapasitet blir dette satt som standard
-    public TabellListe() { // "standard" - forhåndsdefinert str
+    public ArrayList() { // "standard" - forhåndsdefinert str
         this(10);
     }
 
     // konstruktør - send inn kapasitet og opprett array - kalles av foregående konstruktør hvis man ikke oppgir kapasitet
-    public TabellListe(int kapasitet) { // gir fleksibilitet å kunne definere str selv
+    public ArrayList(int kapasitet) { // gir fleksibilitet å kunne definere str selv
         this.kapasitet = kapasitet;
         // java kan ikke direkte opprette generisk array -> derfor Object som castes til T[]
         tabell = (T[]) new Object[kapasitet];
