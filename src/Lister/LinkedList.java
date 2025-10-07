@@ -1,7 +1,7 @@
 package Lister;
 
 // Liste<T> ligger under ArrayList-klassen
-class LinkedList<T> implements Liste<T> {
+public class LinkedList<T> implements Liste<T> {
 
     // Lag noder!
     private class Node<T> {
