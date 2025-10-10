@@ -3,11 +3,11 @@ package Binærtrær;
 // <T> - behandler den generiske datatypen T (dvs ca alle datatyper) - bekreft
 public class Binærtre<T> {
     public static void main(String[] args) {
-        // test leggInn()
+        // TEST ITERATIV LEGGINN()
         Binærtre<String> btre = new Binærtre<>();
         // er ikke hele poenget at vi skal starter indeksering på 1 for at det skal funke med binærtall-navigasjon?
         // i så fall bør det vel være feilmelding på posisjon = 0 ?
-        btre.leggInn(0, "x"); // felmedling test - ikke lov å legge inn på posisjon < 1
+        // btre.leggInn(0, "x"); // felmedling test - ikke lov å legge inn på posisjon < 1
         btre.leggInn(1,"a"); // rot - i github står det 0, men det kan vel ikke stemme? treet vil ikke stemme om vi starter på 0
         btre.leggInn(3,"b");
         btre.leggInn(6,"c");
@@ -16,6 +16,9 @@ public class Binærtre<T> {
         btre.leggInn(14,"f");
         btre.leggInn(15,"g");
         btre.leggInn(31,"h");
+
+        // TEST PREORDEN()
+        btre.preorden();
     }
 
     // node-klasse - definer hva en node er
@@ -100,9 +103,57 @@ public class Binærtre<T> {
         else {
             q.høyre = p; // foreldrenodens høyrebarn blir p
         }
-
-        // for spesielt interesserte: Rekursiv innlegging
     }
 
+    // for spesielt interesserte: Rekursiv innlegging
 
+    // jeg tror vi kaller denne først - 1 gang, så kaller den den andre rekursive, som kaller seg selv flere ganger
+    public void leggInnRekursiv(int indeks, T verdi) {
+        // omgjør posisjon/indeks til binærtall og legg i char array - som i iterativ leggInn()
+        char[] binærtall = Integer.toBinaryString(indeks).toCharArray();
+
+        // rekursivt kall - vi definerer rot-noden (tror jeg?)
+        rot = leggInnRekursiv(rot, verdi, binærtall, 1);
+    }
+
+    // del to av den rekursive metoden
+    private Node leggInnRekursiv(Node p, T verdi, char[] binærtall, int i) {
+        // NB denne gir ikke rett feilmelding dersom man sender inn gal posisjon
+
+        // hvis p ikke er på en gyldig posisjon (ute av treet) OG vi er ute av binærtall-arrayet
+        // er dette base case? her slutter vi å kalle metoden for å iterere gjennom, men legger inn verdien (?)
+        if (p == null && i >= binærtall.length) { // skjønner ikke denne length-greia
+            return new Node(verdi); // vi lager en ny node som vi kan legge på den tomme plassen
+        }
+
+        // her tror jeg vi iterer nedover i treet (følger nav. fra binærtallet)
+        if (binærtall[i] == '0') { // 0 - vi går til venstre
+            // vi kaller metoden igjen
+            p.venstre = leggInnRekursiv(p.venstre, verdi, binærtall, i+1);
+        } else { // vi går til høyre - hvorfor i+1? fordi vi øker indeksen med 1 hver gang vi går et steg lengre?
+            p.høyre = leggInnRekursiv(p.høyre, verdi, binærtall, i + 1);
+        }
+        return p;
+    }
+
+    // PREORDEN - når vi når venstre side av noden
+
+    // vi lager en metode uten parametre - denne kan lett kalles i systemet
+    // vi unngår feil som følge av feil innsending av argument fx
+    public void preorden() {
+        preorden(rot);
+    }
+
+    // denne er private - kan kun kalles her inne, mens metoden uten parametre kan kalles utenfra
+    private void preorden(Node p) {
+        // sjekk at noden faktisk finnes (vi ikke er ute av treet)
+        if (p == null) {
+            return;
+        }
+        // vil helst ta med posisjonen i sout, men får det ikke til med toString()?
+        System.out.println("Noden inneholder: " + p.verdi); // debug tekst
+        // rekursive kall - vi sjekker da egt p == null og kjører sort på hvert barn (?)
+        preorden(p.venstre);
+        preorden(p.høyre);
+    }
 }
