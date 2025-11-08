@@ -15,24 +15,6 @@
     * Dvs. et tre med 4 nivåer (0, 1, 2, 3) har en høyde på 3
 
 ![img_7.png](img_7.png)
-```mermaid
-    flowchart TD
-        Rot((rotnode))
-        Node1((barn
-        til rot))
-        Node2((forelder))
-        Node3((blad))
-        Node4((blad))
-        Node5((barn))
-        Node6((barn))
-        
-        Rot-->Node1
-        Rot-->Node2
-        Node1-->Node3
-        Node1-->Node4
-        Node2-->Node5
-        Node2-->Node6
-```
 
 ## Kalkuler størrelsen på et tre
 * Vi foretrekker indeksering fra 1 istedenfor nullindeksering - lettere formel
