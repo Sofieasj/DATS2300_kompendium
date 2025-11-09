@@ -1,4 +1,6 @@
 package Sorterings_algoritmer;
+// avg O(n^2) pga nestede for-loops
+// best cas O(n), alt sortert listem worst case O(n^2), sortert synende
 
 // vi starter med å anta at første verdi i arrayet er sortert
 // vi ser på neste verdi og ser om det er en inversjon mellom denne og den foregående
@@ -7,7 +9,6 @@ package Sorterings_algoritmer;
 // dersom det er det, bytter vi, og så sjekker vi for inversjon ml denne og den (eller de) foregående elementene
 // vi repeterer dette inntil vi har vært gjennom hvert element og vet at det er rett plassert
 // fordi vi antar at første verdi er sortert trenger vi ikke sortere denne - altså kjører vi gjennom arrayet n-1 ganger
-// fordi vi har nestede løkker er avg. kompleksitet O(n^2), mens best case (alt er sortert) er O(n)
 
 public class InsertionSort {
     public static void main(String[] args) {

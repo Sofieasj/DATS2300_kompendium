@@ -1,5 +1,9 @@
 package Sorterings_algoritmer;
 
+// O(n^2) - uavhengig av case - hele arrayet må gjennomsøkes for å finne minste verdi
+// i denne implementasjonen: sorter har en loop, og inni denne
+// kalles min() som også har en loop -> nestede loops
+
 // vi går gjennom arrayet igjen og igjen (n ganger), finner og flytter den
 // laveste verdien til rett før den usorterte delen av arrayet begynner
 // vi gjentar inntil arrayet er sortert

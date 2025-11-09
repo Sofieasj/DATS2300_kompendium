@@ -1,5 +1,8 @@
 package Søke_algoritmer;
 
+// vi søker gjennom hvert element for å finne største, minste eller nest største verdi
+// avg O(n) fordi vi looper gjennom og ser hvert eneste element
+
 public class Lineærsøk {
     public static void main(String[] args) {
         int [] a = {3, 7, 4, 1, 2, 8, 9, 1};
@@ -16,6 +19,9 @@ public class Lineærsøk {
 
         // iterer gjennom hele arrayet
         for (int i = 1; i < a.length; i++) {
+            // mindre enn < total length - unngår å gå utenfor arrayet - IndexutOfBounds (går utenfor maskinens minne)
+            // ved å bruke length slipper vi risiko for å skrive feil indeks-lengde og få erroren over
+
             // dersom denne verdien er større enn maksverdien (til nå) -> oppdater maksverdi
             if (a[i] > maks) {
                 maks = a[i];

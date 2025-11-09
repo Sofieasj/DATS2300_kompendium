@@ -1,52 +1,86 @@
 package Sorterings_algoritmer;
 
-//https://www.baeldung.com/java-merge-sort
+// Alltid O(n log n) - uavhengig av best/worst/avg case - fordi vi deler opp alt, sorterer og så fletter sammen igjen
+// halveringen er O(log n) og sammenflettingen er O(n) -> O(n log n), litt verre enn O(n), men bedre enn O(n^2)
+
+// vi halverer arrayet gjentatte ganger inntil hvert array er kun 1 element langt
+// så fletter vi rekursivt sammen igjen, nivå for nivå, og sorterer hvert nivå som flettes
+
+// vi har en int[] metode som tar inn et array
+// en basecase - om det er 1 eller færre elementer i arrayet
+// finner lengden og oppretter et v og et h array med halve lengden hver
+// via for loop legges verdiene i []a inn i disse (en halvdel i hver)
+// vi setter v og h til å være mergesort(v) og mergesort(h) - altså rekursive kall - disse vil repetere inntil base case
+// deretter kalles merge-funksjonen, via return, som sorterer og fletter sammen igjen arrayet
+
+// merge tar inn v og h []
+// lager et resultatarray med lengde v+h, og indekstellere for alle arrayene til bruk i while-løkker
+// først - while det er elementer i v og h - sammenligner med if og legger den minste av de to inn i resultat-array
+// dersom ett array er tomt legges de resterende fra det andre inn i resultat, som så returneres
+
 
 public class MergeSort {
-    // tar inn array + lengden på (del)arrayet (n)
-    public static void mergeSort(int[] a, int n) {
-        // base case - det er mindre enn 2 elementer, arrayet kan ikke deles mer
-        if (n < 2) {
-            return;
+    public static void main(String[] args) {
+        int[] a = {1, 4, 3, 6, 2, 7, 9, 5, 6, 2};
+        int[] sortert = mergeSort(a);
+        for(int i : sortert) {
+            System.out.print(i + " ");
         }
-        int mid = n / 2; // halver arrayet - splitt i to
-        int[] l = new int[mid]; // 1. halvdel med lengde mid (100/2 = 50)
-        int[] r = new int[n - mid]; // 2. halvdel med lengde n(total lengde)-mid (resterende halvdel)
+    }
 
-        //iterer gjennom - sett verdiene fra hver halvdel inn i hvert sitt array
+    public static int[] mergeSort (int[] a) {
+        // sjekk - for kort/tomt array + base case!
+        if (a.length <= 1) return a;
+
+        int n = a.length; // total array-lengde
+        // halver array inntil det kun er 1 element i hvert array
+        int mid = n / 2; // finn midtpunktet
+        int[] v = new int[mid]; // like langt som første halvdel av []a
+        int[] h = new int[n - mid]; // like langt som []a, minus den første halvdelen (pga heltallsdivisjon vi ikke bare kan skrive mid?)
+
+        // iterer - flytt verdiene manuelt over i hver sine arrays
+        // venstre array - start fra start og kjør til midtpunkt (IKKE inkludert)
         for (int i = 0; i < mid; i++) {
-            l[i] = a[i];
+            v[i] = a[i];
         }
+
+        // høyre array, start fra midpunkt og kjør til slutten av arrayet
         for (int i = mid; i < n; i++) {
-            r[i - mid] = a[i];
+            h[i-mid] = a[i];
         }
 
-        // reqursion - kall på 1 array, lengde mid + 2 array, lengde n-mid
-        mergeSort(l, mid);
-        mergeSort(r, n - mid);
+        // rekursivt kall - sorter inntil vi oppnår base case (n <= 1)
+        v = mergeSort(v);
+        h = mergeSort(h);
 
-        // kall sorteringsalgoritmen - den returnerer minste element først (med det trenger ikke jeg)
-        merge(a, l, r, mid, n - mid);
+        // etter base case - kall sortering og merge
+        return merge(v, h);
     }
 
-    public static void merge(int[] a, int[] l, int[] r, int left, int right) {
-        // definer tellere for loopene
-        int i = 0, j = 0, k = 0;
+    // ta inn v og h del-array
+    public static int[] merge(int[] v, int[] h) {
+        int[] resultat = new int [v.length + h.length]; // nytt array for resultatet, med plass til alle elementer
+        int i = 0, j = 0, k = 0; // tellere for while-loopene
 
-        // sjekk at det ikke er indexOutOfBounds (?)
-        while (i < left && j < right) {
-            if (l[i] <= r[j]) { // hvis l er mindre enn r, legg inn l i resultat-array
-                a[k++] = l[i++];
+        // så lenge begge array fremdeles har elementer
+        while (i < v.length && j < h.length) {
+            // dersom v er mindre enn h, legger vi v-verdien inn i resultat
+            if (v[i] < h[j]) {
+                resultat[k++] = v[i++]; // vi legger inn og flytter pekerne i samme operasjon
+            } else { // alternativt legger vi h-verdien inn i resultat
+                resultat[k++] = h[j++];
             }
-            else {
-                a[k++] = r[j++]; // hvis r er mindre enn l, legg inn i a array
-            }
+            // kortform if-else: resultat[k++] = (a[i] < b[j]) ? a[i++] : b[j++];
         }
-        while (i < left) { // hva skjer her - er det i tilfelle en av sidene "mangler"?
-            a[k++] = l[i++];
+
+        // etter at ett array tømt kan det fremdeles være elementer i det andre arrayet - vi kopierer disse over
+        while (i < v.length) {
+            resultat[k++] = v[i++];
         }
-        while (j < right) { // hva skjer her - hvis ikke det er noe på venstre side?
-            a[k++] = r[j++];
+        while (j < h.length) {
+            resultat[k++] = h[j++];
         }
+        return resultat; // ferdigsortert tabell
     }
+
 }
