@@ -1,4 +1,4 @@
-package Binærtrær;
+package Bilder;
 
 public class Binærsøketre {
 }

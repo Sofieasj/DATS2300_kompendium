@@ -1,4 +1,4 @@
-# Forelesning 11.10 - Eksamen 2022
+# Forelesning 11.10 - Gjennomgang av eksamen 2022
 
 * øvingstime i morgen - plenumsveiledning m/kahoot og eksamensgjennomgang
 * Nikolai har laget eksamen siden 2023 - tidl. annen foreleser
@@ -48,8 +48,41 @@
    * tegn opp venstreorienter kanonisk tre
    * tell opp hvilket binærtall hvert tegn før
    * skriv ordet og velg rett alternativ
-6. 
+6. Dijkstra - hvilken rekkefølge besøkes nodene i (prioritetskø) -  BADCEGFH
+   * se utregning på ark
+7. Minimumshaug - hvor vil tallet 4 legges inn?
+    * regle for innlegging - legg inn på neste ledige plass (komplett tre), så legg mest mulig mot venstre i nederste nivå
+    * dytt verdien oppover inntil den er rett plassert - sammenlign med foreldre, dersom den er mindre bytter vi plass på verdiene (repeter til forlder er mindre enn vår node)
+8. Min heap - fjern et tall (implisitt - fjern det minste tallet), hvordan ser treet ut nå? 
+   * regel for fjerning - vi tar ut minste verdi = rot
+   * må fremdeles være et lovlig (komplett tre) - bytt plass på 5 og siste node
+   * men nå er det feil rotverdi - den må boble nedover ved å bytte plass med den minste av side barn, repeter
+9. Kodeforståelse - forstå hva koden faktisk gjør når variabelnavnene ikke er intuitive - bytt() funksjon
+   * vil ikke komme på eksamen - er for lett
+Kodeforståelse, hva skjer i koden? FLytter største element bakerst ved å iterer og fjerne inversjoner (bytt())
+    * kun en for-loop - derfor ikke boblesortering - men maksMetode() (linearsearch)
+    * litt mer relevant for emnet, kan komme på eksamen
 
-### Langsvar
+### Teksoppgave
+* Disse oppgavene var for stor for eksamenen
+* rekker ikk gå gjennom - blir pseudokode
+10. Søking i stack - se på denne selv
+    * stack - vi legger inn og henter ut bakerst, derfor er indeks 0 den "bakerste" indeksen
+    * nb - vi må fjerne pannekaker for å finne den vi leter etter, og klare å legge dem tilbake etterpå
+    * vi må derfor flytte disse (lagre dem et annet sted) - sikre at vi legger tilbake i samme rekkefølge
+    * vi kan legge over i ny, midlertidig stabel (kommer i motsatt rekkefølge), og så legger vi tilbake i den originale rekkefølgen (fordi vi starter på toppen, og disse blir liggende underst av de flyttede)
+    * stack midl = new Stack<>(); 
+    * while (!s.empty()) T tmp = s.pop();
+    * if (tmp = val) svar = n!break; // vi har funnet rett verdi og kan slutte å flytte elementer til midl
+    * midl.push(tmp);
+    * SE TEGNING
+    * det viktige er å skjønne at vi trenger en ekstra, midlertidig stack å flytte over i, og så tilbake fra
+11. QuickSort som repeterer verdier - effektiviser den for tabeller med repliserte verdier + forklar hvorfor standard er ineffektiv
+    * alle elementer har samme verdi - vi sorterer kun 1 element pr iterasjon - O(n^2)
+12. Implementer en versjon av quicksort som fungerer bedre på repeterte verdier
+    * rotete kode er ok, så lenge ideen er der
+    * funskjonen er riktig, men skille på om det er "r", "h" eller "b", litt som partall/oddetall, men vi skal omgjøre den til å sortere int etter str istedenfor char etter r, h, b
+    * kikk på denne
 
 ### Tegneoppgave
+13. 

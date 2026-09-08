@@ -1,5 +1,7 @@
 # Stabler og køer
 
+![img_1.png](../Bilder/img_1a.png)
+
 ## Stabel - LIFO - (stack)
 * Last in, First Out - som en stabel med tallerkener, der man både legger inn og tar ut fra toppen av stabelen
 * Java har en egen Stack man kan implementere, men denne er ikke god, så det er bedre å lage en selv
@@ -8,7 +10,8 @@
 * push -legg inn i stabelen (øverst/bakerst)
 * pop - tar ut av stabelen (øverst/bakerst)
 * pekk - kikk på det øverste/bakerste elementet (det du hadde tatt ut med pop)
-* 
+
+![img.png](../Bilder/img_a.png)
 
 ## Kø - FIFO - (queue)
 * First In, First Out - som en kø, der den første i køen også er den første som behandles
@@ -27,4 +30,7 @@
 * Vi legger elementer inn med en prioritet, og elementene sorters og hentes ut basert på denne
 * Høy prioritering, lavt tall, lav prioritering, høyt tall
 
-### Dequeue ("Deck")
+### Deque ("Deck")
+En type kø, men tillater innlegging og fjerning i begge ender - hode og hale.
+Kan implementeres med f.eks. LinkedList og ArrayDeque
+![img_2.png](../Bilder/img_2a.png)

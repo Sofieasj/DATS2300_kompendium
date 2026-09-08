@@ -14,7 +14,7 @@
 * Høyde - tilsvarer nivået på det laveste nivået
     * Dvs. et tre med 4 nivåer (0, 1, 2, 3) har en høyde på 3
 
-![img_7.png](img_7.png)
+![img_7.png](Bilder/img_7.png)
 
 ## Kalkuler størrelsen på et tre
 * Vi foretrekker indeksering fra 1 istedenfor nullindeksering - lettere formel
@@ -32,31 +32,31 @@
 
 ### Perfekt tre
 * Alle nivåene i treet er fylt (det er ingen ledige plasser noe sted)
-![img_2.png](img_2.png)
+![img_2.png](Bilder/img_2.png)
 
 ### Komplett tre
 * Alle nivåer untatt det siste er helt fulle, og det siste er fylt fra venstre
-![img_6.png](img_6.png)
+![img_6.png](Bilder/img_6.png)
 
 ### Fullt tre
 * Alle nodene har enten 0 eller 2 barn (ingen har kun 1 barn)
-![img_4.png](img_4.png)
+![img_4.png](Bilder/img_4.png)
 
 ### Degenerate/skewed tree
 * Hver indre node har kun ett barn - blir tilnærmet som en LinkedList og vi mister effektiviteten i binærtreet
-![img_5.png](img_5.png)
+![img_5.png](Bilder/img_5.png)
 
 ## Binærsøketrær
 * Binærsøk: link til omplementering under søkealgoritmer
 * Binærsøketre
-![img_3.png](img_3.png)
+![img_3.png](Bilder/img_3.png)
 
 ## Implementasjon av et binærtre i Java
 ### Metode 1: Nodeklasse med venstre- og høyre-peker
 ### Metode 2: Nodene nummereres og legges i Array
 
 ## Å travsere et tre
-![img_8.png](img_8.png)  
+![img_8.png](Bilder/img_8.png)  
 Vi legger noden til i listen når vi passerer den fargen som matcher ordenen vi følger
 
 Gitt dette treet:

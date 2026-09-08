@@ -19,14 +19,14 @@ Det er ekvivalent med 2-3-4-trær mht. balansering, men altså et ekte binærtre
 **T** - tante (forelders søsken)  
 **B** - besteforelder  
 
-![img_16.png](img_16.png)
+![img_16.png](Bilder/img_16.png)
 
 ## To røde - og rød tante -> fargeskifte
 Vi bytter farge på forelder, tante og besteforelder. Så må vi sjekke at alt er lovlig høyere opp i treet og at vi ikke har fått 2 røde ved besteforelder.
 Altså er det besteforelder som nå er vår "x" node som vi må vurdere om er lovlig.
 B blir rød (fra sort), og forelder og tante blir sorte, slik at X er lovlig som rød.
 
-![img_19.png](img_19.png)
+![img_19.png](Bilder/img_19.png)
 
 ## To røde - ingen rød tante -> rotasjon og fargskifte
 Vi må rotere Besteforelder ned mot Tanten, slik at Foreldrenoden kommer opp.
@@ -36,14 +36,14 @@ Vi gjør venstrerotasjon dersom X er venstrebarn av et venstrebarn.
 Høyrerotasjon dersom X er høyrebarn av et høyrebarn (de ligger på linje, uten en knekk).
 
 **Høyrerotasjon:**
-![img_17.png](img_17.png)
+![img_17.png](Bilder/img_17.png)
 
 **Venstrerotasjon:**
-![img_18.png](img_18.png)
+![img_18.png](Bilder/img_18.png)
 
 **Venstrerotasjon, med fargeskifte:**
-![img_23.png](img_23.png)
-![img_24.png](img_24.png)
+![img_23.png](Bilder/img_23.png)
+![img_24.png](Bilder/img_24.png)
 
 ## To røde og en knekk -> dobbel rotasjon og fargeskifte
 Dersom vi tenker på rotasjon som på klokka, går vi til høyre, fra 6 til 12, og gjør en dobbel høyrerotasjon - dette er strengt tatt en venstre, og så en høyrerotasjon.
@@ -55,6 +55,6 @@ Ved dobbelt rotasjon er vi opptatt av de to nodene som skal roteres - X og F, og
 
 Et triks for å se underveis om rotasjonene er gjort korrekt - se at inorden ikke har endret seg!
 
-![img_20.png](img_20.png)
-![img_21.png](img_21.png)
-![img_22.png](img_22.png)
+![img_20.png](Bilder/img_20.png)
+![img_21.png](Bilder/img_21.png)
+![img_22.png](Bilder/img_22.png)

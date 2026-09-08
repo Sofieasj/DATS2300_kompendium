@@ -23,7 +23,7 @@ Visuelt er det standard å tegne 2-3-4-trær med kvadratiske noder istedenfor ru
   * Barna "i midten" kobles på mellom verdiene, og skal være større enn den minste og mindre enn den største av disse
   * Det er selve verdiene, ikke noden, som har venstre og høyre barn
 
-![img.png](img.png)
+![img.png](Bilder/img.png)
 
 ## Innlegging
 1. Vi traverserer og finner en bladnode der verdien kan ligge (størrelsesmessig)
@@ -39,9 +39,9 @@ Slik vil det alltid være plass i en foreldrenode, dersom bladnoder må skyver v
 Vi vil legge inn verdien 20 i treet under: Vi traverserer nedover og finner at det er plass til i noden med verdiene 21 og 23. 
 Det kunne være en annen verdi enn 20, men det viktige er at den er større enn foreldrenodens 19 og 25.
 
-![img_10.png](img_10.png)
+![img_10.png](Bilder/img_10.png)
 Treet før innlegging. 
-![img_11.png](img_11.png)
+![img_11.png](Bilder/img_11.png)
 Treet etter innlegging av 20.
 
 ### Innlegging i full node
@@ -49,7 +49,7 @@ Vi vil nå legge vi inn i tabellen. Vi traverserer til det som vil være rett pl
 Vi kan ikke legge den til som en bladnode, for det ville bryte med regelen om at alle bladnoder skal ligge på samme nivå.
 For å løse at noden er full (alt har 3 verdier), må vi skyve opp midterste verdi, og så dele opp noden for å skape ett barn mer (3 verdier i foreldrenoden gir fire barnenoder).
 2 blir til venstrebarn til 3. 4 og 5 legges sammen som høyrebarn til 3, og venstrebarn for 7. 9, 11 og 12 forblir som før.
-![img_12.png](img_12.png)
+![img_12.png](Bilder/img_12.png)
 Treet etter innlegging av 4, og omorganisering for å lage plass i rotnoden.
 
 ### Innlegging i full node, med full foreldrenode
@@ -57,7 +57,7 @@ Vi gjør akkurat som ved innlegging i full node, men foreldrenoden må også lø
 Vi legger 22 inn, mellom 21 og 23. Vi skyver midtverdien 21 opp til foreldrenoden, og så midtverdien i foreldrenoden, 19, oppover til sin forelder.
 Nå er det to verdier i rotnoden, og omorganiserer slik at den har tre barn.
 
-![img_13.png](img_13.png)
+![img_13.png](Bilder/img_13.png)
 Treet etter innlegging av 21.
 
 ### Innlegging av array
@@ -66,12 +66,12 @@ Vi har arrayet [10, 1, 11, 3, 2, 13, 4, 6, 9, 12, 8, 7, 5, 0]
 2. Så legger vi de to neste verdiene inn i denne noden (etter str)
 3. Nå er denne noden full, for å lage plass dytter vi midtverdien oppover så den blir rotnode, de to andre blir rotens barn.
 4. Så kan vi legge inn verdier i bladnodene, flytte midterverdi oppover når en node fylles.
-![img_14.png](img_14.png)
+![img_14.png](Bilder/img_14.png)
 5. Repeter:
    6. Traverser for å finne der en verdi hører hjemme (str)
    7. Er det plass legges den inne, ellers skyves midtverdien opp (evt gjennom flere ledd), og omrokkerer for korrekt antall barn
       * I koden: vi kan rydde plass på traverseringen ned, så er det alltid plass
-![img_15.png](img_15.png)
+![img_15.png](Bilder/img_15.png)
 
 ## Fjerning
 Vi fjerner fra 2-3-4-trær som i binærsøketrær:
